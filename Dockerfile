@@ -2,12 +2,15 @@ FROM continuumio/miniconda3:latest
 
 LABEL maintainer="Konstantin Sokolov sokkos1995@gmail.com"
 
-RUN mkdir /app
+WORKDIR /app
 
-COPY ./1.sh /1.sh
+COPY ./1.sh /app/1.sh
+RUN chmod +x /app/1.sh
+
+RUN apt-get update -y \
+    && apt-get install -y build-essential
 
 COPY ./requirements.txt requirements.txt
-RUN pip install -r requirements.txt
 
-CMD ["/1.sh"]
+CMD ["/app/1.sh"]
 
