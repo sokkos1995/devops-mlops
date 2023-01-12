@@ -1,0 +1,46 @@
+► ansible-playbook -i netology-ml homework.yaml 
+
+PLAY [all] ****************************************************************************************************************
+
+TASK [Gathering Facts] ****************************************************************************************************
+ok: [sokkos-adh-2.ru-central1.internal]
+ok: [sokkos-adh-1.ru-central1.internal]
+ok: [sokkos-adh-3.ru-central1.internal]
+
+TASK [Ping host] **********************************************************************************************************
+ok: [sokkos-adh-2.ru-central1.internal]
+ok: [sokkos-adh-3.ru-central1.internal]
+ok: [sokkos-adh-1.ru-central1.internal]
+
+TASK [Include packages list] **********************************************************************************************
+ok: [sokkos-adh-1.ru-central1.internal]
+ok: [sokkos-adh-2.ru-central1.internal]
+ok: [sokkos-adh-3.ru-central1.internal]
+
+TASK [Install packages] ***************************************************************************************************
+ok: [sokkos-adh-2.ru-central1.internal]
+ok: [sokkos-adh-3.ru-central1.internal]
+ok: [sokkos-adh-1.ru-central1.internal]
+
+TASK [Update packages] ****************************************************************************************************
+changed: [sokkos-adh-3.ru-central1.internal]
+changed: [sokkos-adh-1.ru-central1.internal]
+changed: [sokkos-adh-2.ru-central1.internal]
+
+TASK [Copy test.txt] ******************************************************************************************************
+changed: [sokkos-adh-3.ru-central1.internal]
+changed: [sokkos-adh-1.ru-central1.internal]
+changed: [sokkos-adh-2.ru-central1.internal]
+
+TASK [Create users] *******************************************************************************************************
+changed: [sokkos-adh-2.ru-central1.internal] => (item=devops_1)
+changed: [sokkos-adh-1.ru-central1.internal] => (item=devops_1)
+changed: [sokkos-adh-3.ru-central1.internal] => (item=devops_1)
+changed: [sokkos-adh-2.ru-central1.internal] => (item=test_1)
+changed: [sokkos-adh-1.ru-central1.internal] => (item=test_1)
+changed: [sokkos-adh-3.ru-central1.internal] => (item=test_1)
+
+PLAY RECAP ****************************************************************************************************************
+sokkos-adh-1.ru-central1.internal : ok=7    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 
+sokkos-adh-2.ru-central1.internal : ok=7    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 
+sokkos-adh-3.ru-central1.internal : ok=7    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0 

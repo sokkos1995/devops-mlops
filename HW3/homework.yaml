@@ -1,0 +1,32 @@
+---
+- hosts: all
+  tasks:
+
+  - name: Ping host
+    ping:
+
+  - name: Include packages list
+    include_vars: vars.yaml
+
+  - name: Install packages
+    package:
+      name: "{{ packages_list }}"
+
+  - name: Update packages
+    command:
+      cmd: "yum -y update"
+
+  - name: Copy test.txt
+    copy:
+      src: test.txt
+      dest: /tmp/test.txt
+
+  - name: Create users
+    user:
+      name: "{{ user_loop_var }}"
+      home: "/home/{{ user_loop_var }}"
+    loop:
+      - devops_1
+      - test_1
+    loop_control:
+      loop_var: user_loop_var

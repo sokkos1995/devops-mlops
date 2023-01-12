@@ -1,0 +1,6 @@
+packages_list:
+  - "net-tools"
+  - git
+  - tree
+  - vim
+  - mc

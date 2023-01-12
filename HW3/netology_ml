@@ -1,0 +1,17 @@
+---
+all:
+  hosts:
+    sokkos-adh-1.ru-central1.internal:
+    sokkos-adh-2.ru-central1.internal:
+    sokkos-adh-3.ru-central1.internal:
+  vars:
+    ansible_ssh_private_key_file: /tmp/ansible_id_rsa
+    ansible_ssh_user: ansible
+    ansible_become: true
+    ansible_become_method: sudo
+    packages_list:
+      - net_tools
+      - git
+      - tree
+      - vim
+      - mc
