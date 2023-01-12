@@ -1,0 +1,16 @@
+build:
+  tags: 
+    - netology
+  stage: build
+  script:
+    - echo "Start building"
+    - touch /tmp/info.txt
+    - echo "Build success"
+
+test: 
+  tags: 
+    - netology
+  stage: test
+  script:
+    - echo "Start testing"
+    - '[[ -f /tmp/info.txt ]] && (echo "Test success" && exit 0) || (echo "Test failed" && exit 1)'
